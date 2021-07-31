@@ -255,7 +255,6 @@ class Grabber implements GrabberContract {
 	 * @return void
 	 */
 	public function display() {
-
 		echo $this->render();
 	}
 
@@ -267,8 +266,11 @@ class Grabber implements GrabberContract {
 	 * @return string
 	 */
 	public function render() {
-
-		return apply_filters( 'hybrid/media/grabber/media', $this->locate(), $this );
+		return apply_filters(
+			'hybrid/media/grabber/media',
+			$this->locate(),
+			$this
+		);
 	}
 
 	/**
