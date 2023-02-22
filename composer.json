@@ -2,14 +2,14 @@
 	"name"        : "themehybrid/hybrid-media-grabber",
 	"description" : "Hybrid Media Grabber is a script for pulling media either from the post content or attached to the post, an addon for the Hybrid Core framework.",
 	"keywords"    : [ "wordpress" ],
-	"homepage"    : "https://github.com/themehybrid/hybrid-media",
+	"homepage"    : "https://github.com/themehybrid/hybrid-media-grabber",
 	"license"     : "GPL-2.0-or-later",
 	"authors"     : [
 		{
-			"name"     : "Justin Tadlock",
-			"email"    : "justintadlock@gmail.com",
-			"homepage" : "https://themehybrid.com",
-			"role"     : "Developer"
+			"name": "Theme Hybrid",
+			"email": "themehybrid@gmail.com",
+			"homepage": "https://themehybrid.com",
+			"role": "Developer"
 		}
 	],
 	"support"     : {
