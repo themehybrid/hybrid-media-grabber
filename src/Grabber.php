@@ -10,10 +10,11 @@
  * get a video and display it on archive pages alongside the post excerpt or
  * pull it out of the content to display it above the post on single post views.
  *
- * @package   Hybrid
- * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright Copyright (c) 2008 - 2021, Justin Tadlock
- * @link      https://themehybrid.com/hybrid-core
+ * @package   HybridMediaGrabber
+ * @link      https://github.com/themehybrid/hybrid-media-grabber
+ *
+ * @author    Theme Hybrid
+ * @copyright Copyright (c) 2008 - 2023, Theme Hybrid
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
