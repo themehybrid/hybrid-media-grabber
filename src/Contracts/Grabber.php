@@ -14,13 +14,16 @@
 
 namespace Hybrid\Media\Grabber\Contracts;
 
-use Hybrid\Contracts\Renderable;
 use Hybrid\Contracts\Displayable;
+use Hybrid\Contracts\Renderable;
 
 /**
  * Attributes interface.
  *
  * @since  1.0.0
+ *
  * @access public
  */
-interface Grabber extends Renderable, Displayable {}
+interface Grabber extends Renderable, Displayable {
+
+}
