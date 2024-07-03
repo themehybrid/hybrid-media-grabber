@@ -239,7 +239,7 @@ class Grabber implements GrabberContract {
     public function __construct( $args = [] ) {
         global $wp_embed, $content_width;
 
-        array_map( function( $key ) use ( $args ) {
+        array_map( function ( $key ) use ( $args ) {
 
             if ( isset( $args[ $key ] ) ) {
                 $this->$key = $args[ $key ];
@@ -262,8 +262,8 @@ class Grabber implements GrabberContract {
             $this->type = 'video';
         }
 
-        // Get the raw post content.
-        $this->content = get_post_field( 'post_content', $this->post_id, 'raw' );
+        // Get and render the raw post content.
+        $this->content = $this->get_rendered_content();
     }
 
     /**
@@ -661,6 +661,36 @@ class Grabber implements GrabberContract {
         }
 
         return [ $max_width, $max_height ];
+    }
+
+    /**
+     * Get and render the raw post content.
+     *
+     * @return string Rendered post content.
+     */
+    protected function get_rendered_content() {
+        // Get the raw post content.
+        $raw_content = get_post_field( 'post_content', $this->post_id, 'raw' );
+
+        // Render the blocks to get the rendered HTML content.
+        return $this->render_blocks( $raw_content );
+    }
+
+    /**
+     * Render the blocks in the post content.
+     *
+     * @param string $content The raw post content.
+     * @return string The rendered HTML content.
+     */
+    protected function render_blocks( $content ) {
+        $blocks           = parse_blocks( $content );
+        $rendered_content = '';
+
+        foreach ( $blocks as $block ) {
+            $rendered_content .= render_block( $block );
+        }
+
+        return $rendered_content;
     }
 
 }
