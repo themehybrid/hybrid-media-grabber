@@ -2,6 +2,12 @@
 
 You can see the changes made via the [commit log](https://github.com/themehybrid/hybrid-media-manager/commits/master) for the latest release.
 
+## [1.0.3] - 2024-07-03
+
+### Changed
+
+- Improve block editor compatibility
+
 ## [1.0.2] - 2023-08-02
 
 ### Changed
