@@ -8,7 +8,7 @@
  * @link      https://github.com/themehybrid/hybrid-media-grabber
  *
  * @author    Theme Hybrid
- * @copyright Copyright (c) 2008 - 2023, Theme Hybrid
+ * @copyright Copyright (c) 2008 - 2024, Theme Hybrid
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -19,11 +19,7 @@ use Hybrid\Contracts\Renderable;
 
 /**
  * Attributes interface.
- *
- * @since  1.0.0
- *
- * @access public
  */
-interface Grabber extends Renderable, Displayable {
+interface Grabber extends Displayable, Renderable {
 
 }

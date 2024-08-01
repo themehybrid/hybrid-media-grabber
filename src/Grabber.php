@@ -14,7 +14,7 @@
  * @link      https://github.com/themehybrid/hybrid-media-grabber
  *
  * @author    Theme Hybrid
- * @copyright Copyright (c) 2008 - 2023, Theme Hybrid
+ * @copyright Copyright (c) 2008 - 2024, Theme Hybrid
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -25,100 +25,70 @@ use Hybrid\Media\Grabber\Contracts\Grabber as GrabberContract;
 /**
  * Grabs media related to the post.
  *
- * @since  1.0.0
  * @return void
- *
- * @access public
  */
 class Grabber implements GrabberContract {
 
     /**
      * The HTML version of the media to return.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $media = '';
 
     /**
      * The original media taken from the post content.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $original_media = '';
 
     /**
      * The type of media to get.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $type = 'video';
 
     /**
      * Array of allowed types of media that the script can search for.
      *
-     * @since  1.0.0
-     * @var    array
-     *
-     * @access protected
+     * @var array
      */
     protected $allowed_types = [ 'audio', 'gallery', 'video' ];
 
     /**
      * The content to search for embedded media within.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $content = '';
 
     /**
      * Post ID for the media.
      *
-     * @since  1.0.0
-     * @var    int
-     *
-     * @access protected
+     * @var int
      */
     protected $post_id = 0;
 
     /**
      * HTML to add before the output.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $before = '';
 
     /**
      * HTML to append to the output.
      *
-     * @since  1.0.0
-     * @var    string
-     *
-     * @access protected
+     * @var string
      */
     protected $after = '';
 
     /**
      * Whether to split the media from the post content.
      *
-     * @since  1.0.0
-     * @var    bool
-     *
-     * @access protected
+     * @var bool
      */
     protected $split = false;
 
@@ -126,10 +96,7 @@ class Grabber implements GrabberContract {
      * A width to constrain the media to. Uses the theme's `$content_width`
      * by default.  In most scenarios, this shouldn't be changed.
      *
-     * @since  1.0.0
-     * @var    int
-     *
-     * @access protected
+     * @var int
      */
     protected $width = 0;
 
@@ -137,10 +104,7 @@ class Grabber implements GrabberContract {
      * Whether to search content for known media shortcodes.  Pass an array
      * of shortcode tags for a custom lookup.
      *
-     * @since  1.0.0
-     * @var    bool|array
-     *
-     * @access protected
+     * @var bool|array
      */
     protected $shortcodes = true;
 
@@ -148,40 +112,28 @@ class Grabber implements GrabberContract {
      * Whether to use WP's built-in autoembed feature to pull media from the
      * post content.
      *
-     * @since  1.0.0
-     * @var    bool
-     *
-     * @access protected
+     * @var bool
      */
     protected $autoembeds = true;
 
     /**
      * Whether to search for other media embedded into the post content.
      *
-     * @since  1.0.0
-     * @var    bool
-     *
-     * @access protected
+     * @var bool
      */
     protected $embedded = true;
 
     /**
      * Whether to look for media attached to the post as a last resort.
      *
-     * @since  1.0.0
-     * @var    bool
-     *
-     * @access protected
+     * @var bool
      */
     protected $attached = true;
 
     /**
      * An array of known video shortcodes.
      *
-     * @since  1.0.0
-     * @var    array
-     *
-     * @access protected
+     * @var array
      */
     protected $video_shortcodes = [
         'playlist',
@@ -200,10 +152,7 @@ class Grabber implements GrabberContract {
     /**
      * An array of known audio shortcodes.
      *
-     * @since  1.0.0
-     * @var    array
-     *
-     * @access protected
+     * @var array
      */
     protected $audio_shortcodes = [
         'playlist',
@@ -216,10 +165,7 @@ class Grabber implements GrabberContract {
     /**
      * An array of known gallery shortcodes.
      *
-     * @since  1.0.0
-     * @var    array
-     *
-     * @access protected
+     * @var array
      */
     protected $gallery_shortcodes = [
         'gallery',
@@ -228,13 +174,10 @@ class Grabber implements GrabberContract {
     /**
      * Constructor method.  Sets up the media grabber.
      *
-     * @since  1.0.0
      * @global object  $wp_embed
      * @global int     $content_width
-     * @param  array $args
+     * @param array $args
      * @return void
-     *
-     * @access public
      */
     public function __construct( $args = [] ) {
         global $wp_embed, $content_width;
@@ -269,10 +212,7 @@ class Grabber implements GrabberContract {
     /**
      * Outputs the found media.
      *
-     * @since  1.0.0
      * @return void
-     *
-     * @access public
      */
     public function display() {
         echo $this->render();
@@ -281,10 +221,7 @@ class Grabber implements GrabberContract {
     /**
      * Basic method for returning the media found.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access public
      */
     public function render() {
         return apply_filters(
@@ -298,10 +235,7 @@ class Grabber implements GrabberContract {
      * Tries several methods to find media related to the post.  Returns the
      * found media.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access protected
      */
     protected function locate() {
 
@@ -355,10 +289,7 @@ class Grabber implements GrabberContract {
      * If the post type itself is an attachment, call the shortcode wrapper
      * function for handling the media.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access protected
      */
     protected function locateSelfMedia() {
 
@@ -376,10 +307,7 @@ class Grabber implements GrabberContract {
      * Searches for shortcodes in the post content and sets the generated
      * shortcode output if one is found.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access protected
      */
     protected function locateShortcodeMedia() {
 
@@ -426,10 +354,7 @@ class Grabber implements GrabberContract {
      * Uses WordPress' autoembed feature to automatically to handle media
      * that's just input as a URL.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access protected
      */
     protected function locateAutoembedMedia() {
 
@@ -465,10 +390,7 @@ class Grabber implements GrabberContract {
      * Grabs media embbeded into the content within <iframe>, <object>,
      * <embed>, and other HTML methods for embedding media.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access protected
      */
     protected function locatedEmbeddedMedia() {
 
@@ -485,10 +407,7 @@ class Grabber implements GrabberContract {
      * Gets media attached to the post.  Then, uses the WordPress [audio] or
      * [video] shortcode to handle the HTML output of the media.
      *
-     * @since  1.0.0
      * @return string
-     *
-     * @access protected
      */
     protected function locateAttachedMedia() {
 
@@ -518,12 +437,9 @@ class Grabber implements GrabberContract {
     /**
      * Helper function for running a shortcode.
      *
-     * @since  1.0.0
-     * @param  string $tag
-     * @param  string $shortcode
+     * @param string $tag
+     * @param string $shortcode
      * @return string
-     *
-     * @access protected
      */
     protected function doShortcode( $tag, $shortcode ) {
 
@@ -548,11 +464,8 @@ class Grabber implements GrabberContract {
      * that themes can retrieve the media from the content and display it
      * elsewhere on the page based on its design.
      *
-     * @since  1.0.0
-     * @param  string $content
+     * @param string $content
      * @return string
-     *
-     * @access public
      */
     public function split( $content ) {
 
@@ -569,11 +482,8 @@ class Grabber implements GrabberContract {
      * Method for filtering the media's 'width' and 'height' attributes so
      * that the theme can handle the dimensions how it sees fit.
      *
-     * @since  1.0.0
-     * @param  string $html
+     * @param string $html
      * @return string
-     *
-     * @access protected
      */
     protected function filterDimensions( $html ) {
 
@@ -645,11 +555,8 @@ class Grabber implements GrabberContract {
      * adjust this the best we can.  Right now, the only embed size that
      * works for full-width embeds is the "compact" player (height of 80).
      *
-     * @since  1.0.0
-     * @param  array $media_atts
+     * @param array $media_atts
      * @return array
-     *
-     * @access protected
      */
     protected function spotifyDimensions( $media_atts ) {
 
