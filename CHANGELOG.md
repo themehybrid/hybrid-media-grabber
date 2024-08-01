@@ -2,6 +2,16 @@
 
 You can see the changes made via the [commit log](https://github.com/themehybrid/hybrid-media-manager/commits/master) for the latest release.
 
+## [1.0.4] - 2024-08-01
+
+### Changed
+
+- Add composer minimum-stability to "dev"
+- Add composer prefer-stable to true
+- Add composer sort-packages configuration
+- Update copyright date
+- Update lint php
+
 ## [1.0.3] - 2024-07-03
 
 ### Changed
