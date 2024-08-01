@@ -19,11 +19,7 @@ use Hybrid\Contracts\Renderable;
 
 /**
  * Attributes interface.
- *
- * @since  1.0.0
- *
- * @access public
  */
-interface Grabber extends Renderable, Displayable {
+interface Grabber extends Displayable, Renderable {
 
 }
